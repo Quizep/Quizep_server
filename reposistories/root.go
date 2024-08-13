@@ -1,5 +1,5 @@
 package reposistories
 
 func NewReposistories() {
-	
+
 }
