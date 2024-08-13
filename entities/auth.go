@@ -26,14 +26,14 @@ type UserDAO struct {
 	gorm.Model
 	UUID       string `gorm:"primary_key"`
 	Email      string `gorm:"unique"`
-	Nigganame  string
+	Nickname   string
 	Sex        string
 	CreateExam StringSlice
 	SolvedExam StringSlice
 }
 
 type UserDTO struct {
-	Email     string `json:"email"`
-	Nigganame string `json:"nigganame"`
-	Sex       string `json:"sex"`
+	Email    string `json:"email"`
+	Nickname string `json:"nickaname"`
+	Sex      string `json:"sex"`
 }
