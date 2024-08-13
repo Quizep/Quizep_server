@@ -1,9 +1,13 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
+import (
+	"Quizep_server/services"
+	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
+)
 
-func AuthContoller(r *gin.RouterGroup) {
-	r.POST("/login", func(c *gin.Context) {
-
+func AuthContoller(r *gin.RouterGroup, db *gorm.DB) {
+	r.POST("/signup", func(c *gin.Context) {
+		services.SignUp(c, db)
 	})
 }

@@ -17,8 +17,6 @@ type Config struct {
 	}
 }
 
-var config *Config
-
 func NewCmd(filePath string) {
 	c := new(Config)
 	if file, err := os.Open(filePath); err != nil {
@@ -27,15 +25,6 @@ func NewCmd(filePath string) {
 		panic(err)
 	}
 
-	sql, err := reposistories.NewReposistories(c.MySQL.Host)
-	err = controllers.NewControllers(c.Server.Port, sql)
-	if err != nil {
-		panic(err)
-	}
-
-	config = c
-}
-
-func GetConfig() *Config {
-	return config
+	db := reposistories.NewRepositories(c.MySQL.Host)
+	controllers.NewControllers(c.Server.Port, db)
 }

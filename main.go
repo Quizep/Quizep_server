@@ -1,7 +1,7 @@
 package main
 
 import (
-	"Quizep_server/init/cmd"
+	"Quizep_server/cmd"
 	"flag"
 )
 

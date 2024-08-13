@@ -6,9 +6,18 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewMySQL(dns string) (*gorm.DB, error) {
-	db, err := gorm.Open(mysql.Open(dns), &gorm.Config{})
+func NewMySQL(dsn string) (*gorm.DB, error) {
+	// 데이터베이스 연결 생성
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	if err != nil {
+		return nil, err
+	}
 
+	// 데이터베이스 자동 마이그레이션
 	err = db.AutoMigrate(&entities.UserDAO{})
-	return db, err
+	if err != nil {
+		return nil, err
+	}
+
+	return db, nil
 }

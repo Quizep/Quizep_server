@@ -1,7 +1,7 @@
 package services
 
 import (
-	"Quizep_server/init/cmd"
+	"Quizep_server/cmd"
 	"time"
 )
 
@@ -17,5 +17,5 @@ func init() {
 }
 
 func generateTokenPair() {
-	
+
 }

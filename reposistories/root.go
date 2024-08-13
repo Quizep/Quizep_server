@@ -2,8 +2,10 @@ package reposistories
 
 import "gorm.io/gorm"
 
-func NewReposistories(dns string) (*gorm.DB, error) {
+func NewRepositories(dns string) *gorm.DB {
 	sql, err := NewMySQL(dns)
-
-	return sql, err
+	if err != nil {
+		panic(err)
+	}
+	return sql
 }

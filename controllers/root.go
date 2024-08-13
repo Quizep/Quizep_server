@@ -5,12 +5,14 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewControllers(port string, sql *gorm.DB) error {
+func NewControllers(port string, db *gorm.DB) {
 	r := gin.Default()
 
 	auth := r.Group("/auth")
-	AuthContoller(auth)
+	AuthContoller(auth, db)
 
 	err := r.Run(port)
-	return err
+	if err != nil {
+		panic(err)
+	}
 }
