@@ -13,8 +13,11 @@ type Config struct {
 	}
 	MySQL struct {
 		Host string
+		Jwt  string
 	}
 }
+
+var config *Config
 
 func NewCmd(filePath string) {
 	c := new(Config)
@@ -29,4 +32,10 @@ func NewCmd(filePath string) {
 	if err != nil {
 		panic(err)
 	}
+
+	config = c
+}
+
+func GetConfig() *Config {
+	return config
 }
