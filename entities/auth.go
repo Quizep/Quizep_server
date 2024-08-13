@@ -28,12 +28,14 @@ type UserDAO struct {
 	Email      string `gorm:"unique"`
 	Nickname   string
 	Sex        string
+	Password   string
 	CreateExam StringSlice
 	SolvedExam StringSlice
 }
 
 type UserDTO struct {
 	Email    string `json:"email"`
+	Password string `json:"password"`
 	Nickname string `json:"nickaname"`
 	Sex      string `json:"sex"`
 }
