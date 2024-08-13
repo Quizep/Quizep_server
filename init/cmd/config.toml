@@ -1,0 +1,5 @@
+[server]
+Port = ":8080"
+
+[MySQL]
+Host = "mysql"
