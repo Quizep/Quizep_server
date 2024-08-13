@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"Quizep_server/controllers"
+	"Quizep_server/reposistories"
 	"github.com/naoina/toml"
 	"os"
 )
@@ -22,4 +24,9 @@ func NewCmd(filePath string) {
 		panic(err)
 	}
 
+	sql, err := reposistories.NewReposistories(c.MySQL.Host)
+	err = controllers.NewControllers(c.Server.Port, sql)
+	if err != nil {
+		panic(err)
+	}
 }
