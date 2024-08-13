@@ -1,7 +1,6 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/naoina/toml"
 	"os"
 )
@@ -23,6 +22,4 @@ func NewCmd(filePath string) {
 		panic(err)
 	}
 
-	fmt.Println(c.MySQL.Host)
-	fmt.Println(c.Server.Port)
 }
